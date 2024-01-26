@@ -12,11 +12,11 @@
 
             </ul>
             <ul class="navbar-nav">
-                    <li class="nav-item p-2"><a href="/connexion" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Connexion</a></li>
-                    <li class="nav-item p-2"><a href="/inscription" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Inscription</a></li>
-                    <li class="nav-item p-2"><a href="#" class="nav-link" (click)=deconnexion()><i class="fa-solid fa-right-from-bracket"></i> Deconnexion</a></li>
-                    <li class="nav-item p-2"><a href="/profil" class="nav-link"><i class="fa-solid fa-user"></i> Profil</a></li>
-                    <li class="nav-item p-2"><a href="/panier" class="nav-link"><i class="fa-solid fa-basket-shopping"></i> Mon Panier  <span class="badge badge-pill badge-success">countPanier</span></a></li>
+                    <li class="nav-item p-2" *ngIf="client==null"><a href="/connexion" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Connexion</a></li>
+                    <li class="nav-item p-2" *ngIf="client==null"><a href="/inscription" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Inscription</a></li>
+                    <li class="nav-item p-2" *ngIf="client!=null"><a href="#" class="nav-link" (click)=deconnexion()><i class="fa-solid fa-right-from-bracket"></i> Deconnexion</a></li>
+                    <li class="nav-item p-2" *ngIf="client!=null"><a href="/profil" class="nav-link"><i class="fa-solid fa-user"></i> Profil</a></li>
+                    <li class="nav-item p-2" *ngIf="panier!=null"><a href="/panier" class="nav-link"><i class="fa-solid fa-basket-shopping"></i> Mon Panier  <span class="badge rounded-pill bg-success">{{panier.length}}</span></a></li>
             </ul>
         </div>
     </div>

@@ -7,6 +7,7 @@ import { ListeProduitsComponent } from './produits/liste-produits/liste-produits
 import { PanierComponent } from './achats/panier/panier.component';
 import { ProfilComponent } from './profil/profil.component';
 import { DetailsProduitComponent } from './produits/details-produit/details-produit.component';
+import { CommandeComponent } from './produits/commande/commande.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'liste', component: ListeProduitsComponent},
   {path: 'details/:id', component: DetailsProduitComponent},
   {path: 'panier', component: PanierComponent},
+  {path: 'commander', component: CommandeComponent},
   {path: 'profil', component: ProfilComponent},
 ];
 

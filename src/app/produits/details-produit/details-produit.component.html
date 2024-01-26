@@ -6,13 +6,18 @@
           <img src="../../../assets/images/asus_vivobook17.png" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 400px; width: 100%;">            
         </div>
         <div class="col-4">
-            <div class="bg-white m-3 rounded shadow-sm" style="height: 400px;"> 
-                <div class="d-flex justify-content-between">
-                    <h1>Hotel NeoCity</h1>
+            <div class="bg-white m-3 rounded shadow-sm p-2" style="height: 400px;"> 
+                <h2>ASUS Vivobook 17</h2>
+                <div class="d-flex justify-content-end">
                     <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
                   </div>
             
-            <strong><i class="fa-solid fa-location-dot"></i> 58 rue de saint-martin.</strong>
+            <strong><i class="fa-solid fa-location-dot"></i>PC Portable</strong>
+            <div class="d-flex justify-content-between">
+            <input class="form-control w-50 m-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite" value="1">
+            <button (click)=add() class="btn btn-primary">Ajouter au Panier</button>                
+            </div>
+
             </div>
         </div>
 
@@ -41,14 +46,14 @@
       <thead>
         <tr>
           <th>Catégorie</th>
-          <th>Nombre de lits</th>
+          <th>Reference</th>
           <th>Prix</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>M1/td>
+          <td>M1</td>
           <td>M1</td>
           <td>85 €</td>
           <td class="text-right"><button type="button" class="btn btn-primary">Réserver</button></td>
