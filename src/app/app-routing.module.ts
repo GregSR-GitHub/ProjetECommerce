@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'liste', component: ListeProduitsComponent},
+  {path: 'liste/:id', component: ListeProduitsComponent},
   {path: 'details/:id', component: DetailsProduitComponent},
   {path: 'panier', component: PanierComponent},
   {path: 'commander', component: CommandeComponent},

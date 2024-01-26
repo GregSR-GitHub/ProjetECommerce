@@ -7,13 +7,12 @@
                     <div class="card p-0 col-3" *ngFor="let x of listeArticle">
                         <img class="card-img-top hebergementtop" src="../../../assets/images/{{x.image}}" alt="Card image" style="width:100%; height:200px; object-fit: cover; object-position: center">
                         <div class="card-body">
-                            <a class=" text-dark card-title d-flex justify-content-between" style="text-decoration: none" data-toggle="collapse" href="#"><h5 class="">{{x.nomArticle}}</h5> <i class="fa-solid fa-chevron-down"></i></a>
+                            <a class=" text-dark card-title d-flex justify-content-between" style="text-decoration: none" data-toggle="collapse" href="#"><a href="details/{{x.idArticle}}" class="text-black"><h5 class="">{{x.nomArticle}}</h5></a> <i class="fa-solid fa-chevron-down"></i></a>
                             <div class="collapse" id="description@{@x.IdArticle}">
                                 <p class="card-text">Description</p>
                             </div>
 
                             <strong>{{x.prix}} euro(s)</strong>
-                            <a href="details/{{x.idArticle}}" class="btn btn-primary">En savoir +</a>
                         </div>
                     </div>
 

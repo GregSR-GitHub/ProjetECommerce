@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/modeles/article';
 
 @Component({
@@ -7,7 +9,10 @@ import { Article } from 'src/app/modeles/article';
   styleUrls: ['./liste-produits.component.css']
 })
 export class ListeProduitsComponent {
+  idCategorie:string;
   listeArticle:Array<Article>;
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   list():Array<Article>{
     let liste:Array<Article> = [];
@@ -18,11 +23,25 @@ export class ListeProduitsComponent {
     liste.push(a1);
     liste.push(a1);
     liste.push(a2);
+    liste.push(a1);
+    liste.push(a2);
+    liste.push(a2);
     return liste;
   }
 
   ngOnInit():void{
-    this.listeArticle = this.list();
+    this.route.params.subscribe(params => {
+
+      this.idCategorie = params['id'];
+    });
+
+    if(this.idCategorie==null){
+      this.listeArticle = this.list();
+    }else{
+
+      this.listeArticle = this.list().filter((a)=>a.categorie==Number(this.idCategorie));
+    }
+
   }
 
 }

@@ -2,20 +2,24 @@
     <div><a href="/liste" class="my-2 text-secondary"><i class="fa-solid fa-arrow-left"></i> Retourner aux produits</a></div>
 
       <div class="row">
-        <div class="col-8">
-          <img src="../../../assets/images/asus_vivobook17.png" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 400px; width: 100%;">            
+        <div class="col-9">
+          <img src="../../../assets/images/{{achat.image}}" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 500px; width: 100%;">            
         </div>
-        <div class="col-4">
-            <div class="bg-white m-3 rounded shadow-sm p-2" style="height: 400px;"> 
-                <h2>ASUS Vivobook 17</h2>
+        <div class="col-3">
+            <div class="bg-white m-3 rounded shadow-sm p-3" style="height: 500px;"> 
+                <h3>{{achat.nomArticle}}</h3>
                 <div class="d-flex justify-content-end">
                     <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
                   </div>
-            
-            <strong><i class="fa-solid fa-location-dot"></i>PC Portable</strong>
-            <div class="d-flex justify-content-between">
-            <input class="form-control w-50 m-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite" value="1">
-            <button (click)=add() class="btn btn-primary">Ajouter au Panier</button>                
+            <strong>PC Portable</strong>
+            <div class="text-center fs-2">{{achat.prix}} €</div>
+            <span>Livraison Gratuite</span>
+            <div class="my-5">
+                <div class="">
+                    <input class="form-control w-100 my-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite">
+                    <button (click)=add() class="btn btn-primary  w-100">Ajouter au Panier</button>
+                </div>
+                <div class="text-end text-success fs-4"><i class="fa-solid fa-box"></i> En Stock</div> 
             </div>
 
             </div>
