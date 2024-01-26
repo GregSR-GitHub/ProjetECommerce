@@ -1,0 +1,31 @@
+ <h1 class="montserrat text-center diviseur  m-3">Panier</h1>
+    
+    <div class="container">
+        <h2>Commande de @c.Nom @c.Prenom</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Prix total</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                    <tr>
+                        <td>@x.NomArticle</td>
+                        <td>@x.Quantite</td>
+                        <td>@x.PrixArticle €</td>
+                        <td>@x.GetPrixTotal() €</td>
+                    </tr>
+                <tr>
+            </tbody>
+        </table>
+    <h4 class="text-right"> Prix Total:  prixTotal € <a href="\Commande\Validation" class="btn btn-danger"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </a></h4>
+    
+        <div>
+            <a href="\Commande" class="btn btn-sm btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Retour à la commande.</a>
+            <a href="\Commande\ViderPanier" class="btn btn-sm  btn-secondary"> <i class="fa-solid fa-xmark"></i> Vider le panier </a>
+        </div>
+    </div>

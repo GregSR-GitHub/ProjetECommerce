@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.diviseur{
+    position: relative;
+}
+.diviseur::after{
+    position: absolute;
+    content: " ";
+    width: 50%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    transform: translateX(50%);
+    background-color: black;
+}
