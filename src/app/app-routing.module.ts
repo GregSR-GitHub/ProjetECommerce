@@ -6,6 +6,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ListeProduitsComponent } from './produits/liste-produits/liste-produits.component';
 import { PanierComponent } from './achats/panier/panier.component';
 import { ProfilComponent } from './profil/profil.component';
+import { DetailsProduitComponent } from './produits/details-produit/details-produit.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'liste', component: ListeProduitsComponent},
+  {path: 'details/:id', component: DetailsProduitComponent},
   {path: 'panier', component: PanierComponent},
   {path: 'profil', component: ProfilComponent},
 ];

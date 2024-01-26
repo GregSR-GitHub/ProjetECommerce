@@ -13,6 +13,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ListeProduitsComponent } from './produits/liste-produits/liste-produits.component';
 import { PanierComponent } from './achats/panier/panier.component';
 import { ProfilComponent } from './profil/profil.component';
+import { DetailsProduitComponent } from './produits/details-produit/details-produit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProfilComponent } from './profil/profil.component';
     InscriptionComponent,
     ListeProduitsComponent,
     PanierComponent,
-    ProfilComponent
+    ProfilComponent,
+    DetailsProduitComponent
   ],
   imports: [
     BrowserModule,

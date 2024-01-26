@@ -3,7 +3,7 @@
             <h2 class="text-center m-3">
                 Connexion
             </h2>
-            <form method="post" class="shadow-sm rounded-top p-3 col-md-6 border" action="/Home/Connexion/">
+            <form method="post" class="shadow-sm rounded-top p-3 col-md-6 border bg-white" action="/Home/Connexion/">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Adresse Email</label>
                     <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp" [(ngModel)]="login" required>
@@ -23,7 +23,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary" (click)=connexion()>Se connecter</button>
             </form>
-            <div class="shadow-sm rounded-bottom p-3 col-md-6 border">
+            <div class="shadow-sm rounded-bottom p-3 col-md-6 border  bg-white">
 
                 Mot de passe oublier ?  <a href="#">Récupérez le ici</a>
             </div>
