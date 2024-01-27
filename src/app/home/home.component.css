@@ -14,11 +14,16 @@
     z-index: 10;
 }
 
-    .carousel-caption h1 {
+    .carousel-caption h2 {
         text-shadow: 1px 1px 3px black, 1px 1px black;
         font-size: 3.5rem;
         font-weight: 800;
     }
+
+    .carousel-caption h3 {
+        text-shadow: 1px 1px 3px black, 1px 1px black;
+    }
+
 
 /* Declare heights because of positioning of img element */
 .carousel-item {

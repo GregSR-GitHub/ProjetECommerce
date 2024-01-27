@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Achat } from 'src/app/modeles/achat';
 import { Article } from 'src/app/modeles/article';
+import { ApiArticles } from 'src/app/services/api-articles';
 
 @Component({
   selector: 'app-details-produit',
@@ -29,15 +30,7 @@ export class DetailsProduitComponent {
   }
 
   init() {
-    let a1:Article = {idArticle:"XO12", nomArticle:"Vivobook 17",categorie:2, description:"categorie", image:"asus_vivobook17.png", prix:1570, note:5};
-    let a2:Article = {idArticle:"XO16", nomArticle:"ROG Strix G18",categorie:1, description:"categorie tyty", image:"asus_rogstrixg18.png", prix:1250, note:3};
-
-    if(this.idProduit == a1.idArticle){
-      this.achat = a1;
-
-    }else{
-      this.achat = a2;
-    }
+      this.achat = ApiArticles.prototype.getArticleById(this.idProduit);
   }
 
   add()

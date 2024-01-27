@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/modeles/article';
+import { ApiArticles } from 'src/app/services/api-articles';
 
 @Component({
   selector: 'app-liste-produits',
@@ -15,17 +16,7 @@ export class ListeProduitsComponent {
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   list():Array<Article>{
-    let liste:Array<Article> = [];
-    let a1:Article = {idArticle:"XO12", nomArticle:"Vivobook 17",categorie:2, description:"categorie", image:"asus_vivobook17.png", prix:1570, note:5};
-    let a2:Article = {idArticle:"XO16", nomArticle:"ROG Strix G18",categorie:1, description:"categorie tyty", image:"asus_rogstrixg18.png", prix:1250, note:3};
-    liste.push(a1);
-    liste.push(a2);
-    liste.push(a1);
-    liste.push(a1);
-    liste.push(a2);
-    liste.push(a1);
-    liste.push(a2);
-    liste.push(a2);
+    let liste:Array<Article> = ApiArticles.prototype.getArticles();
     return liste;
   }
 
