@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Client } from 'src/app/modeles/client';
 
 @Component({
   selector: 'app-connexion-form',
@@ -9,8 +12,12 @@ export class ConnexionFormComponent {
   login:string;
   pass:string;
   client:string;
+  c:Client;
   errLogin:string;
   errPass:string;
+
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+
   ngOnInit():void{
     this.init();
   }
@@ -19,20 +26,34 @@ export class ConnexionFormComponent {
     this.client = sessionStorage.getItem("client");
   }
 
+
   connexion(){
     this.errLogin=null;
     this.errPass=null;
-    if(this.login=="toto"){
-      if(this.pass=="toto"){
-        sessionStorage.setItem("client",this.login)
-        this.init();
-        window.location.reload();
-      }else{
-        this.errPass="Mot de passe invalide"
-      }
 
-    }else{
-      this.errLogin="Ce login est invalide"
-    }
+    this.http.get<Client>("http://localhost:57070/api/Client/"+this.login).subscribe(
+      (response) => {
+        this.c=response;
+        console.log(response);
+        if(this.pass==this.c.pass){
+          sessionStorage.setItem("client",JSON.stringify({id:this.c.id,login:this.c.login,nom:this.c.nom,prenom:this.c.prenom}))
+          this.init();
+          window.location.reload();
+        }else{
+          this.errPass="Mot de passe invalide"
+        }
+      }
+      ,
+     (err) => {
+         this.errLogin="Ce login est invalide"
+        console.log("*************KO")
+        
+      },
+
+      () => {
+        console.log("*********complete****")
+        
+      }
+    );
   }
 }

@@ -30,7 +30,23 @@ export class DetailsProduitComponent {
   }
 
   init() {
-      this.achat = ApiArticles.prototype.getArticleById(this.idProduit);
+    this.http.get<Article>("http://localhost:57070/api/Article/?idArticle="+this.idProduit).subscribe(
+      (response) => {
+        this.achat=response;
+       
+        console.log(response);
+      }
+      ,
+     (err) => {
+        console.log("Impossible de trouver l'article")
+        
+      },
+
+      () => {
+        console.log("Sucess")
+        
+      }
+    );
   }
 
   add()

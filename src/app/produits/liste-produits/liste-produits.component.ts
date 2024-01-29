@@ -15,10 +15,9 @@ export class ListeProduitsComponent {
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
-  list():Array<Article>{
-    let liste:Array<Article> = ApiArticles.prototype.getArticles();
-    return liste;
-  }
+
+
+
 
   ngOnInit():void{
     this.route.params.subscribe(params => {
@@ -27,10 +26,44 @@ export class ListeProduitsComponent {
     });
 
     if(this.idCategorie==null){
-      this.listeArticle = this.list();
+
+      this.http.get<Array<Article>>("http://localhost:57070/api/Article").subscribe(
+        (response) => {
+          this.listeArticle=response;
+         
+          console.log(response);
+        }
+        ,
+       (err) => {
+          console.log("*************KO")
+          
+        },
+  
+        () => {
+          console.log("*********complete****")
+          
+        }
+      );
+
     }else{
 
-      this.listeArticle = this.list().filter((a)=>a.categorie==Number(this.idCategorie));
+      this.http.get<Array<Article>>("http://localhost:57070/api/Article").subscribe(
+        (response) => {
+          this.listeArticle=response.filter((a)=>a.categorie==Number(this.idCategorie));
+         
+          console.log(response);
+        }
+        ,
+       (err) => {
+          console.log("*************KO")
+          
+        },
+  
+        () => {
+          console.log("*********complete****")
+          
+        }
+      );
     }
 
   }
