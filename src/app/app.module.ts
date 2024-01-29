@@ -15,6 +15,9 @@ import { PanierComponent } from './achats/panier/panier.component';
 import { ProfilComponent } from './profil/profil.component';
 import { DetailsProduitComponent } from './produits/details-produit/details-produit.component';
 import { CommandeComponent } from './produits/commande/commande.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConnexionFormComponent } from './shared/header/connexion-form/connexion-form.component';
+import { StarsComponent } from './shared/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,16 @@ import { CommandeComponent } from './produits/commande/commande.component';
     PanierComponent,
     ProfilComponent,
     DetailsProduitComponent,
-    CommandeComponent
+    CommandeComponent,
+    ConnexionFormComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Achat } from 'src/app/modeles/achat';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',

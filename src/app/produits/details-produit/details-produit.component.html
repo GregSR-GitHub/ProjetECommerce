@@ -1,86 +1,59 @@
 <div class=" container">
     <div><a href="/liste" class="my-2 text-secondary"><i class="fa-solid fa-arrow-left"></i> Retourner aux produits</a></div>
-
-      <div class="row">
+    <div class="row">
         <div class="col-9">
-          <img src="../../../assets/images/{{achat.image}}" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 500px; width: 100%;">            
+        <img src="../../../assets/images/{{achat.image}}" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 500px; width: 100%;">            
         </div>
         <div class="col-3">
             <div class="bg-white m-3 rounded shadow-sm p-3" style="height: 500px;"> 
                 <h3>{{achat.nomArticle}}</h3>
                 <div class="d-flex justify-content-end">
-                    <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                  </div>
-            <strong>PC Portable</strong>
-            <div class="text-center fs-2">{{achat.prix}} €</div>
-            <span>Livraison Gratuite</span>
-            <div class="my-5">
-                <div class="">
-                    <input class="form-control w-100 my-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite">
-                    <button (click)=add() class="btn btn-primary  w-100">Ajouter au Panier</button>
+                    <app-stars [note]="achat.note"></app-stars>
                 </div>
-                <div class="text-end text-success fs-4"><i class="fa-solid fa-box"></i> En Stock</div> 
-            </div>
-
+                <strong>PC Portable</strong>
+                <div class="text-center fs-2">{{achat.prix}} €</div>
+                <span>Livraison Gratuite</span>
+                <div class="my-5">
+                    <div class="">
+                        <input class="form-control w-100 my-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite">
+                        <button (click)=add() class="btn btn-primary  w-100">Ajouter au Panier</button>
+                    </div>
+                    <div class="text-end text-success fs-4"><i class="fa-solid fa-box"></i> En Stock</div> 
+                </div>
             </div>
         </div>
-
-      </div>
-
-    <div class="container my-3">
-      <div class="bg-light rounded-lg p-2 my-2 shadow-sm  border">
-        <p> Situé en bord de mer, au cœur de Paris, l'établissement 4 étoiles Hotel NeoCity propose des chambres et des suites, une connexion Wi-Fi gratuite ainsi qu'un parking. 
-          <br>Sur place, vous trouverez 2 restaurants : le bistrot Le Jardin gourmand et le restaurant gastronomique L'audace, doté d'une terrasse avec vue sur la baie. L'établissement possède un parking privé. Les réservations doivent être effectuées avant l'arrivée.</p>
-          <div class="my-3">
-            <h5>Points forts:</h5>
-            <br>
-            <span class="border rounded m-1 p-2"><i class="fa-solid fa-location-dot"></i> Position idéal</span>
-            <span class="border rounded m-1 p-2"><i class="fas fa-coffee"></i> Petit-déjeuné</span>
-            <span class="border rounded m-1 p-2"><i class="fas fa-car"></i> Parking</span>
-            <span class="border rounded m-1 p-2"><i class="fa-solid fa-wifi"></i> Wifi inclus</span>
-            <span class="border rounded m-1 p-2"><i class="fa-solid fa-hotel"></i> Réception 24h/24</span>
-          </div>
-        </div>
-  
-  
-      <h2>Informations</h2>
-      <p>Quelques informations.</p>     
-  
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Catégorie</th>
-          <th>Reference</th>
-          <th>Prix</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>M1</td>
-          <td>M1</td>
-          <td>85 €</td>
-          <td class="text-right"><button type="button" class="btn btn-primary">Réserver</button></td>
-        </tr>
-        <tr>
-          <td>Confort</td>
-          <td>M2</td>
-          <td>120 €</td>
-          <td  class="text-right"><button type="button" class="btn btn-primary">Réserver</button></td>
-        </tr>
-        <tr>
-          <td>Premium</td>
-          <td>M3</td>
-          <td>170 €</td>
-          <td  class="text-right"><button type="button" class="btn btn-primary">Réserver</button></td>
-        </tr>
-        <tr>
-          <td>Premium</td>
-          <td>M4</td>
-          <td>170 €</td>
-          <td  class="text-right"><button type="button" class="btn btn-primary">Réserver</button></td>
-        </tr>
-      </tbody>
-    </table>
     </div>
-  </div>
+    <div class="row px-2">
+        <div class="col-5">
+            <div class="bg-white rounded p-1 m-1 shadow-sm border h-100">
+                <h5>Caractéristique du {{achat.nomArticle}}</h5>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>RAM</td>
+                            <td>32 Giga</td>
+                        </tr>
+                        <tr>
+                            <td>CPU</td>
+                            <td>Intel® Core™ Ultra 9 185H</td>
+                        </tr>
+                        <tr>
+                            <td>GPU</td>
+                            <td>NVIDIA® GeForce RTX™ 4070</td>
+                        </tr>
+                        <tr>
+                            <td>Stockage</td>
+                            <td>2TB de PCIe Gen4 Storage</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="bg-dark text-white rounded p-4 m-2 shadow-sm border h-100">
+                <h5>Description du produit:</h5>
+                <br>Apple produit un smartphone à l'écran parfaitement calibré (mais toujours à 60 Hz), intégré dans un boîtier gagnant en élégance et profitant d'un connecteur USB-C pratique, à défaut d'offrir des débits de transfert ou de la charge rapides. L'appareil n'est certes pas aussi polyvalent qu'un iPhone Pro, mais propose une belle prestation photo. Son autonomie est satisfaisante et son format compact, en l'absence de modèle Mini, en fait une option intéressante pour ceux que les dimensions imposantes des modèles Pro rebutent. Un smartphone aussi convenu que réussi, en somme, qui conviendra surtout à ceux qui souhaitent rester dans l'écosystème de la Pomme et n'ont pas renouvelé leur appareil depuis plusieurs années.
+            </div>
+        </div>
+    </div>
+</div>
