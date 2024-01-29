@@ -7,11 +7,11 @@
                     <table class="table table-striped table-sm">
                         <tbody>
 
-                            <tr class="">
+                            <tr class="" *ngFor="let x of listeCommande">
                                 <td class="text-danger text-center" style="width:10%;font-size:1.5em;"><i class="fa-solid fa-box"></i></td>
-                                <td class="" style="width:35%;">Commande : n°@x.Id</td>
-                                <td class="" style="width:35%;">le @x.Date</td>
-                                <td class="" style="width:20%;">@x.PrixTotal €</td>
+                                <td class="" style="width:35%;">Commande : n°{{x.id}}</td>
+                                <td class="" style="width:35%;">le {{x.date}}</td>
+                                <td class="" style="width:20%;">{{x.prixTotal}} €</td>
                             </tr>
 
                         </tbody>
@@ -19,46 +19,45 @@
                 <!--Fin Liste des Articles-->
             </div>
             <div class="col-lg-4">
-                <!--Liste des Achats-->
+                <!--Profil menu -->
                 <div class="bg-secondary rounded-sm shadow-sm p-2 border">
-                    <div id="accordion" class="rounded-sm shadow-sm border">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn m-1 w-100 btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Mon Profil
-                                    </button>
-                                </h5>
-                            </div>
-    
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body text-center">
-                                    <h4 class="m-2">@moi.Nom @moi.Prenom</h4>
-                                    <span>@moi.Id</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn m-1 w-100 btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Mon Adresse de Livraison
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body text-center">
 
-                                        <input type="hidden" name="id" value="@moi.Id" />
-                                        <input class="w-100 my-1" type="text" name="adresse" placeholder="Mon Adresse" value="@moi.Adresse" />
-                                        <br /><button class="btn btn-sm btn-danger" type="submit"> Modifier </button>
+                    <div ngbAccordion>
+                        <div ngbAccordionItem>
+                          <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton> Mon Profil</button>
+                          </h2>
+                          <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                              <ng-template>
+                                <div class="text-center">
+                                    <h4 class="m-2">{{client.nom}} {{client.prenom}} </h4>
+                                <span>{{client.login}} </span>
                                 </div>
+                              </ng-template>
+                            </div>
+                          </div>
+                        </div>
+                        <div ngbAccordionItem>
+                            <h2 ngbAccordionHeader>
+                              <button ngbAccordionButton> Mon Adresse de Livraison</button>
+                            </h2>
+                            <div ngbAccordionCollapse>
+                              <div ngbAccordionBody>
+                                <ng-template >
+                                    <div class="text-center">
+                                        <input class="w-100 my-1" type="text" name="adresse" placeholder="Mon Adresse"  [(ngModel)]="adresse"/>
+                                        <br /><button class="btn btn-sm btn-danger" type="submit" (click)="update()"> Modifier </button>
+                                    </div>
+
+                                </ng-template>
+                              </div>
                             </div>
                         </div>
                     </div>
-    
-                    <!--Fin Menu Admin-->
                 </div>
+                    <!--Fin Menu-->
+                
             </div>
         </div>
     </div>

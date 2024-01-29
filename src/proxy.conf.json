@@ -1,0 +1,9 @@
+{
+    "/apiv1":{
+        "target":"http://localhost:57070/api/",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewite": {"^/apiv1": "targeturl/api"},
+        "changeOrigin" : true
+    }
+}
