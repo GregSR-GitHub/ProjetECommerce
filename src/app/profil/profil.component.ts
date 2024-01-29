@@ -40,7 +40,7 @@ export class ProfilComponent {
 
     this.http.get<Array<Commande>>("http://localhost:57070/api/Commande").subscribe(
       (response) => {
-        this.listeCommande=response;
+        this.listeCommande=response.filter((a)=>a.idClient==this.client.id);
        
         console.log(response);
       }

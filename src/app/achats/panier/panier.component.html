@@ -1,33 +1,49 @@
  <h1 class="montserrat text-center diviseur  m-3">Panier</h1>
     
-    <div class="container">
+    <div class="container" *ngIf="step==0">
         <h2 *ngIf="client!=null">Commande de {{client.nom}} {{client.prenom}}</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Article</th>
-                    <th>Quantité</th>
-                    <th>Prix unitaire</th>
-                    <th>Prix total</th>
-                </tr>
-            </thead>
-            <tbody>
-    
-                    <tr *ngFor="let x of listeAchat">
-                        <td class="p-0" style="width:50px;"><img class="rounded border" src="../../../assets/images/{{x.image}}" alt="Card image" style="width:75px; height:75px; object-fit: cover; object-position: center"></td>
-                        <td>{{x.nomArticle}}</td>
-                        <td>{{x.quantite}}</td>
-                        <td>{{x.prixArticle}} €</td>
-                        <td>{{x.prixArticle*x.quantite}} €</td>
+        <div >
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Article</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Prix total</th>
                     </tr>
-                <tr>
-            </tbody>
+                </thead>
+                <tbody>
+        
+                        <tr *ngFor="let x of listeAchat">
+                            <td class="p-0" style="width:50px;"><img class="rounded border" src="../../../assets/images/{{x.image}}" alt="Card image" style="width:75px; height:75px; object-fit: cover; object-position: center"></td>
+                            <td>{{x.nomArticle}}</td>
+                            <td>{{x.quantite}}</td>
+                            <td>{{x.prixArticle}} €</td>
+                            <td>{{x.prixArticle*x.quantite}} €</td>
+                        </tr>
+                    <tr>
+                </tbody>
         </table>
-    <h4 class="text-right"> Prix Total:  prixTotal € <button class="btn btn-danger" (click)="valider()"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </button></h4>
-    
-        <div>
-            <a href="\liste" class="btn btn-sm btn-secondary"> <i class="fa-solid fa-arrow-left"></i> Retour à la commande.</a>
-            <button class="btn btn-sm btn-secondary" (click)=vider()> <i class="fa-solid fa-xmark"></i> Vider le panier </button>
+            <h4 class="text-end"> Prix Total:  {{total}} € <button class="btn btn-danger" (click)="valider()"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </button></h4>           
         </div>
+
+        <div>
+            <a href="\liste" class="btn btn-sm btn-secondary m-1"> <i class="fa-solid fa-arrow-left"></i> Retour à la commande.</a>
+            <button class="btn btn-sm btn-secondary m-1" (click)=vider()> <i class="fa-solid fa-xmark"></i> Vider le panier </button>
+        </div>
+    </div>
+
+
+    <div class="container"  *ngIf="step==1">
+        <h1>Commande en cours, veuillez patienter ...</h1>
+    </div>
+
+    
+    <div class="container p-3"  *ngIf="step==2">
+        <p class="text-center alert alert-success fs-3">
+            Félicitation {{client.nom}} {{client.prenom}},
+            <br /> La commande à bien été validé !
+            <br /> Le montant total de votre achat est de {{total}} €
+        </p>
     </div>

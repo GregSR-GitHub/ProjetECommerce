@@ -51,13 +51,22 @@ export class DetailsProduitComponent {
 
   add()
   {
-    let i:Achat = new Achat();
-    i.idArticle = this.achat.idArticle;
-    i.nomArticle = this.achat.nomArticle;
-    i.prixArticle = this.achat.prix;
-    i.image = this.achat.image;
-    i.quantite = this.quantite;
-    this.listeArticle.push(i);
+    let testArticle:Achat = this.listeArticle.find((a) => a.idArticle == this.achat.idArticle);
+    let indexTA = this.listeArticle.indexOf(testArticle);
+
+    if(testArticle!=null){
+      console.log(indexTA);
+      this.listeArticle[indexTA].quantite += this.quantite;
+    }else{
+      let i:Achat = new Achat();
+      i.idArticle = this.achat.idArticle;
+      i.nomArticle = this.achat.nomArticle;
+      i.prixArticle = this.achat.prix;
+      i.image = this.achat.image;
+      i.quantite = this.quantite;
+      this.listeArticle.push(i);
+    }
+
     this.save();
   }
   

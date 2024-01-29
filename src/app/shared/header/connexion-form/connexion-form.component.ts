@@ -31,9 +31,9 @@ export class ConnexionFormComponent {
     this.errLogin=null;
     this.errPass=null;
 
-    this.http.get<Client>("http://localhost:57070/api/Client/"+this.login).subscribe(
+    this.http.get<Array<Client>>("http://localhost:57070/api/Client/").subscribe(
       (response) => {
-        this.c=response;
+        this.c=response.filter((a)=>a.login==this.login)[0];
         console.log(response);
         if(this.pass==this.c.pass){
           sessionStorage.setItem("client",JSON.stringify({id:this.c.id,login:this.c.login,nom:this.c.nom,prenom:this.c.prenom}))
