@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Achat } from 'src/app/modeles/achat';
 import { Client } from 'src/app/modeles/client';
 import { Commande } from 'src/app/modeles/commande';
+import { PanierService } from 'src/app/services/panier-service';
 
 @Component({
   selector: 'app-panier',
@@ -15,8 +16,9 @@ export class PanierComponent {
   step: number = 0;
   commande: Commande = new Commande();
   total:number = 0;
+  totalCommande:number = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private panierService : PanierService) { }
 
   ngOnInit(): void {
     let str: string = sessionStorage.getItem("panier");
@@ -34,6 +36,7 @@ export class PanierComponent {
     sessionStorage.removeItem('panier');
     this.listeAchat = null;
     this.total = 0;
+    this.panierService.setRefresh(0);
   }
 
 
@@ -43,6 +46,7 @@ export class PanierComponent {
     this.commande.date = new Date().toISOString().slice(0, 19).replace('T', ' ');
     this.commande.infos = JSON.stringify(this.listeAchat);
     this.commande.prixTotal = this.total;
+    this.totalCommande = this.total;
     console.log(this.commande);
 
     const body=JSON.stringify(this.commande);

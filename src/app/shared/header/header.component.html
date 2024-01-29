@@ -24,7 +24,7 @@
                 <li class="nav-item p-2" *ngIf="client==null"><a href="/inscription" class="nav-link" style="white-space: nowrap;"><i class="fa-solid fa-right-to-bracket"></i> Inscription</a></li>
                 <li class="nav-item p-2" *ngIf="client!=null"><a href="#" class="nav-link"  style="white-space: nowrap;" (click)=deconnexion()><i class="fa-solid fa-right-from-bracket"></i> Deconnexion</a></li>
                 <li class="nav-item p-2" *ngIf="client!=null"><a href="/profil" class="nav-link"  style="white-space: nowrap;"><i class="fa-solid fa-user"></i> Profil</a></li>
-                <li class="nav-item p-2" *ngIf="panier!=null"><a href="/panier" class="nav-link"  style="white-space: nowrap;"><i class="fa-solid fa-basket-shopping"></i> Panier <span class="badge rounded-pill bg-success">{{panier.length}}</span></a></li>
+                <li class="nav-item p-2" *ngIf="nbPanier!=0"><a href="/panier" class="nav-link"  style="white-space: nowrap;"><i class="fa-solid fa-basket-shopping"></i> Panier <span class="badge rounded-pill bg-success">{{nbPanier}}</span></a></li>
         </ul>
           </div>
         </div>

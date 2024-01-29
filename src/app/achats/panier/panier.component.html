@@ -25,7 +25,10 @@
                     <tr>
                 </tbody>
         </table>
-            <h4 class="text-end"> Prix Total:  {{total}} € <button class="btn btn-danger" (click)="valider()"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </button></h4>           
+            <h4 class="text-end"> Prix Total:  {{total}} € <button *ngIf="client!=null" class="btn btn-danger" (click)="valider()"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </button></h4>    
+            <p  *ngIf="client==null" class="text-center alert alert-success">
+                Vous devrez vous connecter ou crer un compte afin de valider la
+            </p>       
         </div>
 
         <div>
@@ -40,10 +43,11 @@
     </div>
 
     
-    <div class="container p-3"  *ngIf="step==2">
-        <p class="text-center alert alert-success fs-3">
+    <div class="container p-3 text-center"  *ngIf="step==2">
+        <p class=" alert alert-success fs-3">
             Félicitation {{client.nom}} {{client.prenom}},
             <br /> La commande à bien été validé !
-            <br /> Le montant total de votre achat est de {{total}} €
+            <br /> Le montant total de votre achat est de {{totalCommande}} €
         </p>
+        <a href="\profil" class="btn btn-sm btn-secondary m-1"> Mes commandes.</a>
     </div>

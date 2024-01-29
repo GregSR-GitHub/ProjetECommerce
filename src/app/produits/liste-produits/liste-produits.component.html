@@ -22,7 +22,11 @@
                                     <li>Stockage: 2TB de PCIe Gen4 Storage</li>
                                 </ul>
                             </div>
-                        <div class="fs-3 text-center">{{x.prix}} €</div>
+                            <div class="fs-3 text-center mb-2">{{x.prix}} €</div>
+                            <div class="row">
+                                <div class="col"><app-add-produit [achat]="x" [quantite]="1"></app-add-produit></div>
+                                <div class="col"><a href="details/{{x.idArticle}}" class="btn btn-outline-primary w-100">En savoir +</a></div>
+                            </div>
                     </div>
                 </div>                        
             </div>

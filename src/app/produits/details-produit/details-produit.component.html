@@ -16,7 +16,7 @@
                 <div class="my-5">
                     <div class="">
                         <input class="form-control w-100 my-1" type="number" placeholder="Quantité" min="1" max="99" name="quantite" [(ngModel)]="quantite">
-                        <button (click)=add() class="btn btn-primary  w-100">Ajouter au Panier</button>
+                        <app-add-produit [achat]="achat" [quantite]="quantite"></app-add-produit>
                     </div>
                     <div class="text-end text-success fs-4"><i class="fa-solid fa-box"></i> En Stock</div> 
                 </div>
