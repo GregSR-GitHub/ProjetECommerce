@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column align-items-center">
+<div *ngIf="clientSession==null" class="container d-flex flex-column align-items-center">
 
             <h2 class="text-center  m-3">
                 Inscription:
@@ -27,7 +27,7 @@
                 </div>
                 
                     <div>
-                        <span class="alert alert-danger p-0">Erreure</span>
+                        <span *ngIf="errLogin!=null" class="alert alert-danger p-0">{{errLogin}}</span>
                     </div>
 
                 <div class="form-group form-check">
@@ -39,7 +39,16 @@
             </form>
 
             <h2 *ngIf="status == 'Ok'" class="text-center m-3">
-                <br />Bienvenue @Model.Nom  @Model.Prenom ,<br /> Vous êtres à present membre du site Pizza.fr, vous pouvez dés à dés maintenant commander un de nos délicieux menus !
+                <br />Bienvenue {{nom}} {{prenom}} ,<br /> Vous êtres à present membre de notre site , vous pouvez dés à dés maintenant commander un de nos article !
             </h2>
+
+</div>
+
+<div *ngIf="clientSession!=null" class="container d-flex flex-column align-items-center">
+
+    <h2 *ngIf="status == 'Ok'" class="text-center m-3">
+        <br />Vous êtes membre de notre site , vous pouvez dés à dés maintenant commander un de nos article !
+        <br><a href="\home" class="btn btn-sm btn-secondary m-1"> Valider</a>
+    </h2>
 
 </div>
