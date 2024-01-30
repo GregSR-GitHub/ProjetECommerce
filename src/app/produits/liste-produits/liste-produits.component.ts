@@ -13,7 +13,12 @@ import { ApiArticles } from 'src/app/services/api-articles';
 export class ListeProduitsComponent {
   idCategorie:string;
   listeArticle:Array<Article>;
+  listeArticleSave:Array<Article>;
   categorie: Categorie;
+  searchname:string;
+  searchnote:number;
+  searchprixmin:number;
+  searchprixmax:number;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
@@ -28,6 +33,7 @@ export class ListeProduitsComponent {
       this.http.get<Array<Article>>("http://localhost:57070/api/Article").subscribe(
         (response) => {
           this.listeArticle=response;
+          this.listeArticleSave=response;
          
           console.log(response);
         }
@@ -48,6 +54,7 @@ export class ListeProduitsComponent {
       this.http.get<Array<Article>>("http://localhost:57070/api/Article").subscribe(
         (response) => {
           this.listeArticle=response.filter((a)=>a.categorie==Number(this.idCategorie));
+          this.listeArticleSave=this.listeArticle;
          
           console.log(response);
         }
@@ -89,5 +96,22 @@ export class ListeProduitsComponent {
       this.categorie = {id:0, nomCategorie:"Tout nos articles", description:"PC portable ou de bureau, mobile, tablette et autres. Vous trouverez tout nos articles ici."} 
      }
     } 
+
+    search():void{
+      let filterListe = this.listeArticleSave;
+      if(this.searchname!=null){
+        filterListe=filterListe.filter((a)=>new RegExp(this.searchname,'i').test(a.nomArticle));
+      }
+      if(this.searchnote>=1){
+        filterListe=filterListe.filter((a)=>a.note>=this.searchnote);
+      }
+      if(this.searchprixmin!=null){
+        filterListe=filterListe.filter((a)=>a.prix>=this.searchprixmin);
+      }
+      if(this.searchprixmax!=null){
+        filterListe=filterListe.filter((a)=>a.prix<=this.searchprixmax);
+      }
+      this.listeArticle=filterListe;
+    }
 
 }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Achat } from 'src/app/modeles/achat';
 import { Article } from 'src/app/modeles/article';
+import { Client } from 'src/app/modeles/client';
 import { ApiArticles } from 'src/app/services/api-articles';
 
 @Component({
@@ -15,7 +16,8 @@ export class DetailsProduitComponent {
   quantite:number = 1;
   achat: Article;
   listeArticle:Array<Achat> =new Array<Achat>();
-  pluslisteArticle:Array<Article> =new Array<Article>();
+  pluslisteArticle:Array<Article>;
+  client:Client;
 
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
@@ -28,6 +30,7 @@ export class DetailsProduitComponent {
       console.log(this.idProduit);
     });
       this.listeArticle = JSON.parse(sessionStorage.getItem("panier")) || [];
+      this.client=JSON.parse(sessionStorage.getItem("client"));
       this.init();
       this.plusArticle();
   }

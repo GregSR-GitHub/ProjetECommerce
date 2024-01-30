@@ -1,5 +1,5 @@
 <div class=" container">
-    <div><a href="/liste" class="my-2 text-secondary"><i class="fa-solid fa-arrow-left"></i> Retourner aux produits</a></div>
+    <div><a href="/liste/{{achat.categorie}}" class="my-2 text-secondary"><i class="fa-solid fa-arrow-left"></i> Retourner aux produits</a></div>
     <div class="row">
         <div class="col-9">
         <img src="../../../assets/images/{{achat.image}}" alt="vivobook"  class="m-3 rounded shadow-sm" style="object-fit: cover; object-position: center; height: 500px; width: 100%;">            
@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-end">
                     <app-stars [note]="achat.note"></app-stars>
                 </div>
-                <strong>PC Portable</strong>
+                <span>{{achat.description}}</span>
                 <div class="text-center fs-2">{{achat.prix}} €</div>
                 <span>Livraison Gratuite</span>
                 <div class="my-5">
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <h2 class="text-center m-4 diviseur">Vous serez aussi intéréssé par ces produits !!</h2>
+    <h2 *ngIf="pluslisteArticle!=null" class="text-center m-4 diviseur">Vous serez aussi intéréssé par ces produits !!</h2>
     
     <div class="row">
         <div *ngFor="let x of pluslisteArticle" class="col">
@@ -65,25 +65,61 @@
         </div>
     </div>
 
+    <h2 class="text-center m-4 diviseur">L'avis de nos clients</h2>
+
+
+    <div class="bg-white rounded p-2 my-3 border">
+        <div class="d-flex justify-content-between">
+           <strong> <i class="fa-solid fa-user"></i> Jack P.</strong>
+           <span>22/01/2024</span>
+        </div>
+       <div class="d-flex">
+            <app-stars [note]="5"></app-stars>
+            <strong class="mx-2 my-1">Titre de l'avis</strong>
+       </div>
+       <div>Voici un long message pour dire que ce site est une véritable merveille.</div>
+    </div>
+
+    <div class="bg-white rounded p-2 my-3 border">
+        <div class="d-flex justify-content-between">
+           <strong> <i class="fa-solid fa-user"></i> Melanie T.</strong>
+           <span>21/01/2024</span>
+        </div>
+       <div class="d-flex">
+            <app-stars [note]="1"></app-stars>
+            <strong class="mx-2 my-1">Effroyable ...</strong>
+       </div>
+       <div>Nul !</div>
+    </div>
+
     <div class="row">
-        <div class="bg-white rounded-lg p-2 m-3 border">
+        <div *ngIf="client!=null" class="bg-white rounded p-2 my-3 border">
             <h2 class="text-center m-2">Laisser votre avis sur ce produit</h2>
-            <div class="row d-flex">
-                <div class="col-sm-2"><i class="fa-solid fa-location-dot"></i> Paris, France</div>
+            <div class="row d-flex my-1">
+                <div class="col-sm-2"> <i class="fa-solid fa-user"></i> {{client.nom}} {{client.prenom}}</div>
                 <div class="form-group col-sm-5">
-                    <input type="text" class="form-control" id="name" placeholder="Votre Nom">
+                    <input type="text" class="form-control" id="name" placeholder="Titre">
                 </div>
                 <div class="form-group col-sm-5">
-                    <input type="email" class="form-control" id="email" placeholder="Vore Email">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Sélectionnez une note</option>
+                        <option value="1">1/5 - Mauvais </option>
+                        <option value="2">2/5 - Décevant</option>
+                        <option value="3">3/5 - Correct</option>
+                        <option value="4">4/5 - Bon</option>
+                        <option value="5">5/5 - Très bon</option>
+                      </select>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="message">Votre message :</label>
-                <textarea class="form-control" rows="4" id="message" placeholder="Message"></textarea>
+            <div class="form-group my-1 text-center">
+                <textarea class="form-control w-100" rows="4" id="message" placeholder="Votre avis sur ce produit"></textarea>
                 <br />
-                <a href="#" class="btn btn-secondary w-100">Envoyer</a>
+                <a href="#" class="btn btn-secondary">Envoyer</a>
             </div>
+        </div>
+        <div *ngIf="client==null" class="bg-white rounded-lg p-2 m-2 border">
+            <h5 class="text-center my-1">Veuillez vous connecter afin de laisser votre avis.</h5>
         </div>
     </div>
 </div>
