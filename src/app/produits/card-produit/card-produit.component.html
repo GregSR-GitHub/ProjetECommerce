@@ -1,0 +1,24 @@
+<div class="card p-0 w-100">
+    <a class="img-wrapper rounded" href="details/{{article.idArticle}}"  style="width:100%; height:250px;">
+        <img class="card-img-top hebergementtop" src="../../../assets/images/{{article.image}}" alt="Card image" style="width:100%; height:250px; object-fit: cover; object-position: center">
+    </a>
+    <div class="card-body">
+        <a class="text-dark card-title d-flex justify-content-between" style="text-decoration: none" href="details/{{article.idArticle}}"><h5 class="">{{article.nomArticle}}</h5></a>
+            <div class="card-text">
+                <div class="d-flex justify-content-end">
+                    <app-stars  [note]="article.note"></app-stars>
+                </div>
+                <ul>
+                    <li>RAM : 32 Giga</li>
+                    <li>CPU : Intel® Core™ Ultra 9 185H</li>
+                    <li>GPU : NVIDIA® GeForce RTX™ 4070</li>
+                    <li>Stockage: 2TB de PCIe Gen4 Storage</li>
+                </ul>
+            </div>
+            <div class="fs-3 text-center mb-2">{{article.prix}} €</div>
+            <div class="row">
+                <div class="col"><app-add-produit [achat]="article" [quantite]="1"></app-add-produit></div>
+                <div class="col"><a href="details/{{article.idArticle}}" class="btn btn-outline-primary w-100">En savoir +</a></div>
+            </div>
+    </div>
+</div>

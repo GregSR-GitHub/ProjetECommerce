@@ -17,7 +17,7 @@
         
                         <tr *ngFor="let x of listeAchat">
                             <td class="p-0" style="width:50px;"><img class="rounded border" src="../../../assets/images/{{x.image}}" alt="Card image" style="width:75px; height:75px; object-fit: cover; object-position: center"></td>
-                            <td>{{x.nomArticle}}</td>
+                            <td><a href="details/{{x.idArticle}}" class="text-dark">{{x.nomArticle}}</a></td>
                             <td>{{x.quantite}}</td>
                             <td>{{x.prixArticle}} €</td>
                             <td>{{x.prixArticle*x.quantite}} €</td>
@@ -26,8 +26,8 @@
                 </tbody>
         </table>
             <h4 class="text-end"> Prix Total:  {{total}} € <button *ngIf="client!=null" class="btn btn-danger" (click)="valider()"> <i class="fa-solid fa-basket-shopping"></i> Valider le panier </button></h4>    
-            <p  *ngIf="client==null" class="text-center alert alert-success">
-                Vous devrez vous connecter ou crer un compte afin de valider la
+            <p *ngIf="client==null" class="text-center alert alert-success">
+                Vous devrez vous connecter ou créer un compte afin de valider la commande.
             </p>       
         </div>
 
@@ -36,7 +36,6 @@
             <button class="btn btn-sm btn-secondary m-1" (click)=vider()> <i class="fa-solid fa-xmark"></i> Vider le panier </button>
         </div>
     </div>
-
 
     <div class="container"  *ngIf="step==1">
         <h1>Commande en cours, veuillez patienter ...</h1>

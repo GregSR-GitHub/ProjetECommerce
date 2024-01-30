@@ -15,6 +15,8 @@ export class DetailsProduitComponent {
   quantite:number = 1;
   achat: Article;
   listeArticle:Array<Achat> =new Array<Achat>();
+  pluslisteArticle:Array<Article> =new Array<Article>();
+
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
@@ -27,6 +29,7 @@ export class DetailsProduitComponent {
     });
       this.listeArticle = JSON.parse(sessionStorage.getItem("panier")) || [];
       this.init();
+      this.plusArticle();
   }
 
   init() {
@@ -49,4 +52,25 @@ export class DetailsProduitComponent {
     );
   }
 
+plusArticle() {
+  this.http.get<Array<Article>>("http://localhost:57070/api/Article").subscribe(
+    (response) => {
+      let liste = response.filter((a)=>a.categorie==Number(this.achat.categorie));
+      this.pluslisteArticle= liste.slice(0,3);
+    }
+    ,
+   (err) => {
+      console.log("*************KO")
+      
+    },
+
+    () => {
+      console.log("*********complete****")
+      
+    }
+  );
 }
+
+
+}
+

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/modeles/article';
+import { Categorie } from 'src/app/modeles/categorie';
 import { ApiArticles } from 'src/app/services/api-articles';
 
 @Component({
@@ -12,12 +13,9 @@ import { ApiArticles } from 'src/app/services/api-articles';
 export class ListeProduitsComponent {
   idCategorie:string;
   listeArticle:Array<Article>;
+  categorie: Categorie;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
-
-
-
-
 
   ngOnInit():void{
     this.route.params.subscribe(params => {
@@ -65,7 +63,31 @@ export class ListeProduitsComponent {
         }
       );
     }
-
+    this.initCat();
   }
+
+  initCat(): void{
+    if(this.idCategorie!=null){
+      this.http.get<Categorie>("http://localhost:57070/api/Categorie/"+this.idCategorie).subscribe(
+        (response) => {
+          this.categorie=response;
+        
+          console.log(response);
+        }
+        ,
+      (err) => {
+          console.log("*************KO")
+          
+        },
+
+        () => {
+          console.log("*********complete****")
+          
+        }
+      );
+     }else{
+      this.categorie = {id:0, nomCategorie:"Tout nos articles", description:"PC portable ou de bureau, mobile, tablette et autres. Vous trouverez tout nos articles ici."} 
+     }
+    } 
 
 }

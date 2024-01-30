@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConnexionFormComponent } from './shared/header/connexion-form/connexion-form.component';
 import { StarsComponent } from './shared/stars/stars.component';
 import { AddProduitComponent } from './produits/add-produit/add-produit.component';
+import { CardProduitComponent } from './produits/card-produit/card-produit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddProduitComponent } from './produits/add-produit/add-produit.componen
     CommandeComponent,
     ConnexionFormComponent,
     StarsComponent,
-    AddProduitComponent
+    AddProduitComponent,
+    CardProduitComponent
   ],
   imports: [
     BrowserModule,
