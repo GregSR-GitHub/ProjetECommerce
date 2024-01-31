@@ -20,6 +20,7 @@ import { ConnexionFormComponent } from './shared/header/connexion-form/connexion
 import { StarsComponent } from './shared/stars/stars.component';
 import { AddProduitComponent } from './produits/add-produit/add-produit.component';
 import { CardProduitComponent } from './produits/card-produit/card-produit.component';
+import { AvisProduitComponent } from './produits/avis-produit/avis-produit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CardProduitComponent } from './produits/card-produit/card-produit.compo
     ConnexionFormComponent,
     StarsComponent,
     AddProduitComponent,
-    CardProduitComponent
+    CardProduitComponent,
+    AvisProduitComponent
   ],
   imports: [
     BrowserModule,

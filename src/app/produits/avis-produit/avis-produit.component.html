@@ -1,0 +1,43 @@
+
+<div *ngFor="let a of listeAvis" class="bg-white rounded p-2 my-3 border">
+    <div class="d-flex justify-content-between">
+       <strong> <i class="fa-solid fa-user"></i> Avis du Client n°{{a.idClient}}</strong>
+       <span>{{a.dateCreation}}</span>
+    </div>
+   <div class="d-flex">
+        <app-stars [note]="a.note"></app-stars>
+   </div>
+   <div>{{a.contenu}}</div>
+</div>
+
+<div class="row">
+    <div *ngIf="client!=null" class="bg-white rounded p-2 my-3 border">
+        <h2 class="text-center m-2">Laisser votre avis sur ce produit</h2>
+        <div class="row d-flex my-1">
+            <div class="col-sm-2"> <i class="fa-solid fa-user"></i> {{client.nom}} {{client.prenom}}</div>
+            <div class="form-group col-sm-5">
+
+            </div>
+            <div class="form-group col-sm-5">
+                <select class="form-select" [(ngModel)]="note" aria-label="Default select example">
+                    <option value="1">1/5 - Mauvais </option>
+                    <option value="2">2/5 - Décevant</option>
+                    <option value="3">3/5 - Correct</option>
+                    <option value="4">4/5 - Bon</option>
+                    <option value="5" selected>5/5 - Très bon</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="form-group my-1 text-center">
+            <textarea class="form-control w-100" rows="4" id="message"  [(ngModel)]="textAvis" placeholder="Votre avis sur ce produit"></textarea>
+            <br />
+            <button *ngIf="state==0" type="submit" class="btn btn-secondary" (click)=postAvis()>Envoyer</button>
+            <button *ngIf="state==1" type="submit" class="btn btn-success">Avis validé !</button>
+            <button *ngIf="state==2" type="submit" class="btn btn-danger">Echec ...</button>
+        </div>
+    </div>
+    <div *ngIf="client==null" class="bg-white rounded-lg p-2 m-2 border">
+        <h5 class="text-center my-1">Veuillez vous connecter afin de laisser votre avis.</h5>
+    </div>
+</div>

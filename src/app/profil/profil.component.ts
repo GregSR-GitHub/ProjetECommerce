@@ -51,10 +51,15 @@ export class ProfilComponent {
       },
 
       () => {
-        console.log("*********complete****")
-        
+        this.listeCommande.forEach((a)=>{
+          a.infos2 = JSON.parse(a.infos);
+          console.log(a.infos2);
+        });
+         console.log("*********complete****")
       }
     );
+
+
     
   }
 
