@@ -53,6 +53,7 @@ export class ProfilComponent {
       () => {
         this.listeCommande.forEach((a)=>{
           a.infos2 = JSON.parse(a.infos);
+          a.date = a.date.replace('T', ' ');
           console.log(a.infos2);
         });
          console.log("*********complete****")

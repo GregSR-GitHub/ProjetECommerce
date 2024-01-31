@@ -48,6 +48,42 @@ export class AvisProduitComponent {
     );
   }
 
+  changeNote():void{
+    let nbAvis:number = 0;
+    let noteFinal:number = this.article.note;
+    for(let x of this.listeAvis){
+      nbAvis++;
+      noteFinal += x.note;
+    }
+    if(nbAvis==0)
+      nbAvis = 1 ;
+    noteFinal = noteFinal/nbAvis;
+    if(noteFinal>5)
+    noteFinal = 5 ;
+
+    this.article.note = noteFinal;
+    console.log(noteFinal);
+    const body = JSON.stringify(this.article);
+    
+    this.http.put("http://localhost:57070/api/Article", body, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    }).
+      subscribe(response => {
+
+     
+        console.log("update ok");
+
+      },
+
+        err => {
+        
+          console.log("update KO");
+
+        });
+  }
+
   getIdClient(idClient:number): Client {
     let c:Client;
 
@@ -87,12 +123,15 @@ export class AvisProduitComponent {
 
      
       console.log("OK");
+      this.init();
+      this.changeNote();  
       this.state = 1;
     },
 
       err => {
        
         console.log("KO");
+
         this.state = 2;
       });
 

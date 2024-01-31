@@ -14,9 +14,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div *ngIf="x.infos2!=null">
+                    <div *ngIf="x.infos2!=null" class="bg-white p-2 rounded">
                       <div *ngFor="let y of x.infos2">
-                        {{y.nomArticle}} x {{y.quantite}} : {{y.prixArticle*y.quantite}} €<br>
+                        - {{y.nomArticle}} x {{y.quantite}} : {{y.prixArticle*y.quantite}} €<br>
                       </div>
                     </div>
                   </div>

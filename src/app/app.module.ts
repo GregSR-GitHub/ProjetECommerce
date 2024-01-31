@@ -21,6 +21,8 @@ import { StarsComponent } from './shared/stars/stars.component';
 import { AddProduitComponent } from './produits/add-produit/add-produit.component';
 import { CardProduitComponent } from './produits/card-produit/card-produit.component';
 import { AvisProduitComponent } from './produits/avis-produit/avis-produit.component';
+import { ChatService } from './services/chat-service';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AvisProduitComponent } from './produits/avis-produit/avis-produit.compo
     StarsComponent,
     AddProduitComponent,
     CardProduitComponent,
-    AvisProduitComponent
+    AvisProduitComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { AvisProduitComponent } from './produits/avis-produit/avis-produit.compo
     HttpClientModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import { PanierComponent } from './achats/panier/panier.component';
 import { ProfilComponent } from './profil/profil.component';
 import { DetailsProduitComponent } from './produits/details-produit/details-produit.component';
 import { CommandeComponent } from './produits/commande/commande.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'panier', component: PanierComponent},
   {path: 'commander', component: CommandeComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'chat', component: ChatComponent},
 ];
 
 @NgModule({

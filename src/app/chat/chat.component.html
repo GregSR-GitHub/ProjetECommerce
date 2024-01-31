@@ -1,0 +1,128 @@
+
+<div class="container">
+    <h1 class="text-center diviseur  m-3">Centre d'aide</h1>
+    <div class="row">
+        <div class="col-sm-5">
+<!-- FAQ -->
+<h3 class="text-center">Question les plus fréquentes</h3>
+<div ngbAccordion>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton> Comment retourner un produit acheté ?</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div class="">
+            <span>
+                <p>Si le produit que vous avez reçu ne vous convient pas, <strong>vous disposez de 15 jours après réception</strong> pour nous le retourner par voie postale (retour à vos frais en cas de changement d'avis). </p>
+                <p>Si votre produit est arrivé défectueux, incomplet ou hors service, contactez-nous dès que possible, nous trouverons une solution (échange, remboursement, réparation...)</p>
+            </span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton> Quels sont les modes de paiement acceptés ?</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template >
+                <div class="">
+                    <p>Pour payer sur notre site, plusieurs options sont possibles, Tech&Shop accepte les paiements par :</p>
+                    <ul>
+                        <li><strong>Cartes bancaires :</strong> Carte Bleue, Visa, MasterCard, Maestro</li>
+                        <li><strong>Autres cartes :</strong> Carte de crédit Mastercard Fnac, American Express</li>
+                        <li><strong>Paypal</strong></li>
+                    </ul>
+                </div>
+            </ng-template>
+          </div>
+        </div>
+    </div>
+
+    <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton> Comment suivre ma commande ?</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template >
+                <div class="">
+                    Rendez-vous sur votre espace client dans la rubrique "Mes commandes", puis "Détails de la commande" pour retrouver le suivi.
+                </div>
+
+            </ng-template>
+          </div>
+        </div>
+    </div>
+
+    <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>  Comment réinitialiser mon mot de passe ?</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template >
+                <div class="">
+                    Cliquer sur "Se connecter", puis sur "mot de passe oublié".
+                </div>
+
+            </ng-template>
+          </div>
+        </div>
+    </div>
+
+    <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton> Quels sont les délais de livraison à domicile ?</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template >
+                <div class="">
+                    <ul>
+                        <li><strong> Livraison standard :</strong> Entre 2 et 3 jours, du lundi au samedi, dans votre boite aux lettres ou selon la taille du colis en main propre (devant votre maison ou au pied de votre immeuble)</li>
+                        <li><strong>Livraison express :</strong> Dès le lendemain avant 18h, pour toute commande passée avant 18h (ou 23h59 en Ile de France)</li>
+                    </ul>
+                    
+                 
+                </div>
+
+            </ng-template>
+          </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- Fin FAQ -->
+        </div>
+        <div class="col-sm-7">
+            <h3 class="text-center">Ou demandez à TechBot <i class="fa-solid fa-robot"></i> !</h3>
+<!-- TECHBOT -->
+        <div class="w-100 bg-white rounded shadow p-3 m-2">
+            <ng-container *ngFor="let message of messages">
+                <div class="message" [ngClass]="{from: message.author === 'bot',to: message.author === 'user'}">
+                {{ message.content }}
+                </div>
+            </ng-container>
+            <label *ngIf="messages.length == 0; else dialogInfo" for="nameField"></label>
+            <input class="form-control m-1" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" />
+            <button class="btn btn-primary m-1" (click)="sendMessage()"> Envoyer </button>
+            <ng-template #dialogInfo>
+                <span [className]="'float-right'">Total messages: {{ messages.length }}</span>
+            </ng-template>
+        </div> 
+<!-- Fin TECHBOT -->
+        </div>
+    </div>
+
+    
+  
+</div>
