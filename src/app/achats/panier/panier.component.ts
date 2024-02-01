@@ -39,6 +39,15 @@ export class PanierComponent {
     this.panierService.setRefresh(0);
   }
 
+  suprimmer(idArticle: string):void{
+    console.log(idArticle);
+    let newliste = this.listeAchat.filter((a)=>a.idArticle!=idArticle);
+    this.listeAchat = newliste;
+    let str:string = JSON.stringify(newliste);
+    sessionStorage.setItem("panier",str);
+    this.panierService.setRefresh(newliste.length);
+  }
+
 
   valider():void{
     this.step = 1;
@@ -57,7 +66,6 @@ export class PanierComponent {
       })
     }).subscribe(response => {
 
-     
       console.log("OK");
       this.vider();
       this.step = 2;

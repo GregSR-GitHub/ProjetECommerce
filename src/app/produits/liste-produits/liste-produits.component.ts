@@ -25,7 +25,13 @@ export class ListeProduitsComponent {
   ngOnInit():void{
     this.route.params.subscribe(params => {
 
-      this.idCategorie = params['id'];
+      if(params['id']!=0){
+        this.idCategorie = params['id'];
+      }
+      let search =  params['search'];
+      if(search!=null){
+        this.searchname = search;
+      }
     });
 
     if(this.idCategorie==null){
@@ -44,6 +50,9 @@ export class ListeProduitsComponent {
         },
   
         () => {
+          if(this.searchname!=null){
+            this.listeArticle = this.listeArticle.filter((a)=>new RegExp(this.searchname,'i').test(a.nomArticle));
+           }
           console.log("*********complete****")
           
         }

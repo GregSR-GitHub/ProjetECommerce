@@ -73,16 +73,10 @@ export class ProfilComponent {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
-    }).
-      subscribe(response => {
-
-     
+    }).subscribe(response => {
         console.log("update ok");
-
       },
-
         err => {
-        
           console.log("update KO");
 
         });

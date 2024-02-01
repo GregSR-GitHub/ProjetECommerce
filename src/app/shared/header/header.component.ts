@@ -15,6 +15,7 @@ export class HeaderComponent implements OnDestroy {
   panier: Array<Achat> = Array<Achat>();
   subPanier : Subscription;
   nbPanier: number;
+  search: string;
 
   constructor(private panierService : PanierService) {
     this.subPanier = this.panierService.getRefresh().subscribe((value) => {
